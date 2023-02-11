@@ -1,7 +1,8 @@
-export function ContactItem({ name }) {
+export function ContactItem({ name, number }) {
   return (
     <li>
-      <p>{name}</p>
+      <span>{name}</span>
+      <span> {number}</span>
     </li>
   );
 }

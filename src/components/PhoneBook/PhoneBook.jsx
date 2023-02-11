@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export class PhoneBook extends Component {
   state = {
     name: '',
+    number: null,
   };
 
   handleChange = event => {
@@ -15,9 +17,10 @@ export class PhoneBook extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const { name } = this.state;
+    const { name, number } = this.state;
     const contact = {
       name,
+      number: Number.parcelFloat(number),
     };
 
     //при submit в пропсах в форме наша ф-ция addContact, пропс onAddContact
@@ -25,15 +28,14 @@ export class PhoneBook extends Component {
 
     //при сабмите формы функцию достаем с пропсов
     this.props.onAddContact(contact);
-
-    // this.setState({
-    //   contacts: newContacts,
-    //   name: '',
-    // });
+    this.setState({
+      name: '',
+      number: null,
+    });
   };
 
   render() {
-    const { name } = this.state;
+    // const { name, number } = this.state;
     return (
       <>
         <form onSubmit={this.handleSubmit}>
@@ -48,9 +50,23 @@ export class PhoneBook extends Component {
             id
             required
           />
+          <label htmlFor="">Number</label>
+          <input
+            type="tel"
+            name="number"
+            onChange={this.handleChange}
+            value={this.state.number}
+            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+            required
+          />
           <button type="submit">Add contact</button>
         </form>
       </>
     );
   }
 }
+
+PhoneBook.propTypes = {
+  onAddContact: PropTypes.func.isRequired,
+};

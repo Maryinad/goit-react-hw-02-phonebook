@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import { PhoneBook } from './PhoneBook/PhoneBook.jsx';
 import { ContactList } from './ContactList/ContactList.jsx';
 import { nanoid } from 'nanoid';
-import contacts from '../data/contacts.json';
+// import contactsData from '../data/contactsData.json';
 
 export class App extends Component {
   state = {
     contacts: [
-      { id: 'id-1', name: 'Rosie Simpson' },
-      { id: 'id-2', name: 'Hermione Kline' },
-      { id: 'id-3', name: 'Eden Clements' },
-      { id: 'id-4', name: 'Annie Copeland' },
+      { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
+      { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
+      { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
+      { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
   };
   //как он появляется ??
@@ -21,8 +21,11 @@ export class App extends Component {
       ...contact,
     };
 
-    this.setState({ contacts: [newContact, ...this.state.contacts] });
-    // console.log(contacts);
+    // this.setState({ contacts: [newContact, ...this.state.contacts] });
+    this.setState(prevState => ({
+      contacts: [newContact, ...prevState.contacts],
+    }));
+    // console.log(newContact);
   };
 
   render() {
@@ -32,7 +35,7 @@ export class App extends Component {
         <h1>Phonebook</h1>
         <PhoneBook onAddContact={this.addContact} title="Phonebook" />;
         <h2>Contacts</h2>
-        <ContactList contacts={contacts} />
+        <ContactList contacts={this.state.contacts} />
       </>
     );
   }
