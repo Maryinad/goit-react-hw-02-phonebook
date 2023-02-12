@@ -20,7 +20,7 @@ export class PhoneBook extends Component {
     const { name, number } = this.state;
     const contact = {
       name,
-      number: Number.parcelFloat(number),
+      number,
     };
 
     //при submit в пропсах в форме наша ф-ция addContact, пропс onAddContact
@@ -28,11 +28,16 @@ export class PhoneBook extends Component {
 
     //при сабмите формы функцию достаем с пропсов
     this.props.onAddContact(contact);
+
+    this.reset();
+  };
+
+  reset() {
     this.setState({
       name: '',
       number: null,
     });
-  };
+  }
 
   render() {
     // const { name, number } = this.state;
