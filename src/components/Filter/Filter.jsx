@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Title, InputBlock } from './Filter.styled';
 
 export function Filter({ value, onFilterChange }) {
@@ -14,3 +15,8 @@ export function Filter({ value, onFilterChange }) {
     </>
   );
 }
+
+Filter.propTypes = {
+  value: PropTypes.string.isRequired,
+  onFilterChange: PropTypes.func.isRequired,
+};

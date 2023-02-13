@@ -45,7 +45,7 @@ export class PhoneBook extends Component {
   reset() {
     this.setState({
       name: '',
-      number: null,
+      number: '',
     });
   }
 
@@ -84,4 +84,5 @@ export class PhoneBook extends Component {
 
 PhoneBook.propTypes = {
   onAddContact: PropTypes.func.isRequired,
+  contacts: PropTypes.array.isRequired,
 };

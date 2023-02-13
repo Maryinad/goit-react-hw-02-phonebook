@@ -4,6 +4,7 @@ import { ContactList } from './ContactList/ContactList.jsx';
 import { nanoid } from 'nanoid';
 import { Filter } from '../components/Filter/Filter.jsx';
 import { TitlePhone, TitleCont } from './App.styled';
+
 // import contactsData from '../data/contactsData.json';
 
 export class App extends Component {
