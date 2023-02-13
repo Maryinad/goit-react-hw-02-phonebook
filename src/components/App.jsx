@@ -17,14 +17,10 @@ export class App extends Component {
   };
 
   //обрабатывает то, что возвращает наша форма, дальше через props onAddContact(можем назвать как угодно), передали эту функцию
-  addContact = contact => {
-    if (this.state.contacts.some(contact => contact.name === contact.name)) {
-      alert(`Contact ${contact.name} is already exist`);
+  addContact = newContact => {
+    if (this.state.contacts.some(contact => contact.name === newContact.name)) {
+      alert(`Contact ${newContact.name} is already exist`);
     }
-    const newContact = {
-      id: nanoid(),
-      ...contact,
-    };
 
     // this.setState({ contacts: [newContact, ...this.state.contacts] });
     this.setState(prevState => ({
@@ -40,9 +36,10 @@ export class App extends Component {
   };
 
   deleteContact = contactId => {
-    this.state({
-      contacts: this.contacts.filter(contact => contact.id !== contactID),
-    });
+    console.log(contactId);
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== contactId),
+    }));
   };
 
   render() {

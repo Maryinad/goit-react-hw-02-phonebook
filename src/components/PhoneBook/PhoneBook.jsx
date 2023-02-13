@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { nanoid } from 'nanoid';
 
 export class PhoneBook extends Component {
   state = {
     name: '',
-    number: null,
+    number: '',
   };
 
   handleChange = event => {
@@ -21,6 +22,7 @@ export class PhoneBook extends Component {
     const contact = {
       name,
       number,
+      id: nanoid(),
     };
 
     //при submit в пропсах в форме наша ф-ция addContact, пропс onAddContact
