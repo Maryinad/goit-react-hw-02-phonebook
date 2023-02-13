@@ -3,6 +3,7 @@ import { PhoneBook } from './PhoneBook/PhoneBook.jsx';
 import { ContactList } from './ContactList/ContactList.jsx';
 import { nanoid } from 'nanoid';
 import { Filter } from '../components/Filter/Filter.jsx';
+import { TitlePhone, TitleCont } from './App.styled';
 // import contactsData from '../data/contactsData.json';
 
 export class App extends Component {
@@ -52,9 +53,9 @@ export class App extends Component {
     //передаем пропсами
     return (
       <>
-        <h1>Phonebook</h1>
-        <PhoneBook onAddContact={this.addContact} title="Phonebook" />;
-        <h2>Contacts</h2>
+        <TitlePhone>Phonebook</TitlePhone>
+        <PhoneBook onAddContact={this.addContact} title="Phonebook" />
+        <TitleCont>Contacts</TitleCont>
         <Filter value={this.state.filter} onFilterChange={this.handleFilter} />
         <ContactList
           contacts={filteredContacts}

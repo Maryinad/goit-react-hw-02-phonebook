@@ -1,9 +1,11 @@
 import React from 'react';
+import { Title, InputBlock } from './Filter.styled';
+
 export function Filter({ value, onFilterChange }) {
   return (
     <>
-      <h2>Find contact by name</h2>
-      <input
+      <Title>Find contact by name</Title>
+      <InputBlock
         type="text"
         name="filter"
         onChange={onFilterChange}

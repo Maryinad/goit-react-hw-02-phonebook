@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
+import {
+  FormField,
+  TitleName,
+  TitleNumber,
+  InputName,
+  InputNumber,
+  Btn,
+} from './PhoneBook.styled';
 
 export class PhoneBook extends Component {
   state = {
@@ -45,9 +53,9 @@ export class PhoneBook extends Component {
     // const { name, number } = this.state;
     return (
       <>
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor="">Name</label>
-          <input
+        <FormField onSubmit={this.handleSubmit}>
+          <TitleName htmlFor="">Name</TitleName>
+          <InputName
             type="text"
             name="name"
             onChange={this.handleChange}
@@ -57,8 +65,8 @@ export class PhoneBook extends Component {
             id
             required
           />
-          <label htmlFor="">Number</label>
-          <input
+          <TitleNumber htmlFor="">Number</TitleNumber>
+          <InputNumber
             type="tel"
             name="number"
             onChange={this.handleChange}
@@ -67,8 +75,8 @@ export class PhoneBook extends Component {
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
           />
-          <button type="submit">Add contact</button>
-        </form>
+          <Btn type="submit">Add contact</Btn>
+        </FormField>
       </>
     );
   }
