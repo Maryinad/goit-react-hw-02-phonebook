@@ -1,23 +1,18 @@
 import { ContactItem } from './ContactItem';
 import PropTypes from 'prop-types';
 
-const newContactList = [];
-
 export function ContactList({ contacts, onDeleteBtn }) {
   return (
     <ul>
       {contacts.length > 0 &&
         contacts.map(({ id, name, number }) => (
-          <>
-            <ContactItem
-              id={id}
-              key={id}
-              name={name}
-              number={number}
-              onDeleteBtn={onDeleteBtn}
-            />
-            {/* <button onClick={() => onDeleteBtn(id)}>Delete</button> */}
-          </>
+          <ContactItem
+            id={id}
+            key={id}
+            name={name}
+            number={number}
+            onDeleteBtn={onDeleteBtn}
+          />
         ))}
     </ul>
   );
@@ -28,7 +23,7 @@ ContactList.propTypes = {
     PropTypes.shape({
       id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
       name: PropTypes.string.isRequired,
-      number: PropTypes.number.isRequired,
+      number: PropTypes.string.isRequired,
     })
   ),
 };

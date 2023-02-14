@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { PhoneBook } from './PhoneBook/PhoneBook.jsx';
 import { ContactList } from './ContactList/ContactList.jsx';
-import { nanoid } from 'nanoid';
 import { Filter } from '../components/Filter/Filter.jsx';
 import { TitlePhone, TitleCont } from './App.styled';
 
@@ -55,7 +54,10 @@ export class App extends Component {
         <TitlePhone>Phonebook</TitlePhone>
         <PhoneBook onAddContact={this.addContact} title="Phonebook" />
         <TitleCont>Contacts</TitleCont>
-        <Filter value={this.state.filter} onFilterChange={this.handleFilter} />
+        <Filter
+          value={this.state.filterTerm}
+          onFilterChange={this.handleFilter}
+        />
         <ContactList
           contacts={filteredContacts}
           onDeleteBtn={this.deleteContact}

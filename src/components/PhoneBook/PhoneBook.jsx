@@ -36,7 +36,7 @@ export class PhoneBook extends Component {
     //при submit в пропсах в форме наша ф-ция addContact, пропс onAddContact
     console.log(this.props);
 
-    //при сабмите формы функцию достаем с пропсов
+    //при сабмите формы функцию достаем с пропсов  и отправляем наш контакт в апп
     this.props.onAddContact(contact);
 
     this.reset();
@@ -62,7 +62,6 @@ export class PhoneBook extends Component {
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             value={this.state.name}
-            id
             required
           />
           <TitleNumber htmlFor="">Number</TitleNumber>
@@ -84,5 +83,4 @@ export class PhoneBook extends Component {
 
 PhoneBook.propTypes = {
   onAddContact: PropTypes.func.isRequired,
-  contacts: PropTypes.array.isRequired,
 };

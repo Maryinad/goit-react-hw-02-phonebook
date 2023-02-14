@@ -18,3 +18,16 @@ export const InputBlock = styled.input`
   min-width: 200px;
   min-height: 30px;
 `;
+
+// export const TestInput = styled(InputBlock)``;
+
+// const Li = styled.li`
+// font-size: 15px
+// color: green
+// `;
+
+// const Ul = styled.ul`
+//   ${Li} {
+//     color: red;
+//   }
+// `;
